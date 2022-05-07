@@ -1,5 +1,10 @@
+import random
+
 status = []
-word = ""
+
+bank = ["Apple","Banana","Cherry","Date","Elderberry","Fig","Grape","Huckleberry","Jackfruit","Kiwi","Lemon","Mango","Nectarine","Orange","Peach","Pineapple","Quince","Raspberry","Strawberry","Tangerine","Ugliberry","Watermelon"]
+
+word = random.choice(bank)
 
 def show_memes(status: list):
     print("\t |")
