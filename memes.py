@@ -10,9 +10,9 @@ word = random.choice(bank)
 
 def show_memes(status: list):
     print("\t |")
-    print(f"\t {'O' if len(status) == 1 else ''}")
-    print(f"\t {'/' if len(status) == 3 else ''}{'|' if len(status) == 3 else ''}{'7' if len(status) == 4 else ' '} ")
-    print(f"""\t{'/' if len(status) == 6 else ''} {'''7 ''' if len(status) == 7 else ''} """)
+    print(f"\t {'O' if len(status) >= 1 else ''}")
+    print(f"\t{'/' if len(status) >= 2 else ''}{'|' if len(status) >= 3 else ''}{'7' if len(status) >= 4 else ' '} ")
+    print(f"""\t{'/' if len(status) >= 5 else ''} {'''7 ''' if len(status) >= 6 else ''} """)
     
 def guess():
     x = input("Guess a letter: ")
@@ -28,21 +28,32 @@ def guess():
         guesses.append(x)
         print("Correct")
     
-done = False
+
 
 def menu():
-    show_memes([])
+    
+
+    done = True
+    show_memes(status)
+    strin = ""
     for x in word:
         if x in guesses:
-            print(x, end=" ")
+            strin += " " + x
         else:
-            print("_", end=" ")
+            strin += " _"
             done = False
-        print("\n")
+    print(strin)
     
-    if done:
+    if len(status) == 6:
+        print("Has perdido")
+        print("La palabra era: ", word)
+        exit()
+    
+    
+    if not done:
         guess()
-        menu
+        done = True
+        menu()
         return
     else:
         print("You Won")
@@ -53,6 +64,8 @@ def menu():
 
 def main():
     print("Welcome to the program")
+    while True:
+        menu()
 
 if __name__ == '__main__':
     main()
