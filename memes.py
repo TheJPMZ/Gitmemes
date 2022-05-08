@@ -6,6 +6,9 @@ turtle.setup(width=600, height=600)
 t.speed(0)
 t.penup()
 t.goto(0, 150)
+t.pendown()
+t.right(90)
+t.forward(50)
 
 status = []
 guesses = []
@@ -15,7 +18,12 @@ bank = ["Apple","Banana","Cherry","Date","Elderberry","Fig","Grape","Huckleberry
 word = random.choice(bank).upper()
 
 # Draw a hangman with turtle and show the status of the game
-
+def draw_head():
+    t.right(90)
+    t.circle(25)
+    t.penup()
+    t.left(90)
+    t.forward(50)
 
 def show_memes(status: list):
     print("\t |")
