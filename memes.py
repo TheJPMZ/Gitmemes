@@ -23,7 +23,14 @@ def draw_head():
     t.circle(25)
     t.penup()
     t.left(90)
-    t.forward(50)
+    t.forward(150)
+    t.pendown()
+    
+def draw_body():
+    t.forward(-100)
+
+
+    
 
 def show_memes(status: list):
     print("\t |")
