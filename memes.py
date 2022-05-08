@@ -29,7 +29,10 @@ def draw_head():
 def draw_body():
     t.forward(-100)
 
-
+def draw_rifht_arm():
+    t.right(45)
+    t.forward(100)
+    t.forward(-100)
     
 
 def show_memes(status: list):
