@@ -3,16 +3,7 @@ Muestra un basico juego de hangman
 """
 __autor__ = "TheJPMZ"
 import random
-import turtle
-
-t = turtle.Turtle()
-turtle.setup(width=600, height=600)
-t.speed(0)
-t.penup()
-t.goto(0, 150)
-t.pendown()
-t.right(90)
-t.forward(50)
+import managegui as mg
 
 status = []
 guesses = []
@@ -22,57 +13,19 @@ bank = ["Apple", "Banana", "Cherry", "Date", "Elderberry", "Fig", "Grape", "Huck
 
 word = random.choice(bank).upper()
 
-# Draw a hangman with turtle and show the status of the game
-
-
-def draw_head():
-    t.right(90)
-    t.circle(25)
-    t.penup()
-    t.left(90)
-    t.forward(150)
-    t.pendown()
-
-
-def draw_body():
-    t.forward(-100)
-
-
-def draw_rifht_arm():
-    t.right(45)
-    t.forward(100)
-    t.forward(-100)
-    t.left(45)
-
-
-def draw_left_arm():
-    t.left(45)
-    t.forward(100)
-    t.forward(-100)
-    t.right(45)
-
-
-def draw_right_leg():
-    t.forward(100)
-    t.right(45)
-    t.forward(100)
-    t.forward(-100)
-    t.left(45)
-
-
 def show_memes(status: list):
     if len(status) == 1:
-        draw_head()
+        mg.draw_head()
     elif len(status) == 2:
-        draw_body()
+        mg.draw_body()
     elif len(status) == 3:
-        draw_rifht_arm()
+        mg.draw_rifht_arm()
     elif len(status) == 4:
-        draw_left_arm()
+        mg.draw_left_arm()
     elif len(status) == 5:
-        draw_right_leg()
+        mg.draw_right_leg()
     elif len(status) == 6:
-        draw_left_arm()
+        mg.draw_left_arm()
 
 
 def guess():
@@ -101,7 +54,7 @@ def menu():
         else:
             strin += " _"
             done = False
-    print(strin)
+    mg.draw_sentence(strin)
 
     if len(status) == 6:
         print("Has perdido")
@@ -116,11 +69,13 @@ def menu():
         return
     else:
         print("You Won")
+        input("Press enter to exit")
         exit()
 
 
 def main():
     print("Welcome to the program")
+    mg.init()
     while True:
         menu()
 
