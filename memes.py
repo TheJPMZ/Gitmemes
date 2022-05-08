@@ -1,5 +1,11 @@
-from mimetypes import guess_all_extensions, guess_extension
 import random
+import turtle
+
+t = turtle.Turtle()
+turtle.setup(width=600, height=600)
+t.speed(0)
+t.penup()
+t.goto(0, 150)
 
 status = []
 guesses = []
@@ -7,6 +13,9 @@ guesses = []
 bank = ["Apple","Banana","Cherry","Date","Elderberry","Fig","Grape","Huckleberry","Jackfruit","Kiwi","Lemon","Mango","Nectarine","Orange","Peach","Pineapple","Quince","Raspberry","Strawberry","Tangerine","Ugliberry","Watermelon"]
 
 word = random.choice(bank).upper()
+
+# Draw a hangman with turtle and show the status of the game
+
 
 def show_memes(status: list):
     print("\t |")
@@ -28,11 +37,7 @@ def guess():
         guesses.append(x)
         print("Correct")
     
-
-
 def menu():
-    
-
     done = True
     show_memes(status)
     strin = ""
