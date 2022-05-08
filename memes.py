@@ -48,12 +48,20 @@ def draw_right_leg():
     t.forward(-100)
     t.left(45)
     
-    
+
 def show_memes(status: list):
-    print("\t |")
-    print(f"\t {'O' if len(status) >= 1 else ''}")
-    print(f"\t{'/' if len(status) >= 2 else ''}{'|' if len(status) >= 3 else ''}{'7' if len(status) >= 4 else ' '} ")
-    print(f"""\t{'/' if len(status) >= 5 else ''} {'''7 ''' if len(status) >= 6 else ''} """)
+    if len(status) == 1:
+        draw_head()
+    elif len(status) == 2:
+        draw_body()
+    elif len(status) == 3:
+        draw_rifht_arm()
+    elif len(status) == 4:
+        draw_left_arm()
+    elif len(status) == 5:
+        draw_right_leg()
+    elif len(status) == 6:
+        draw_left_arm()
     
 def guess():
     x = input("Guess a letter: ").upper()
