@@ -72,6 +72,7 @@ def guess():
         status.append(x)
         guesses.append(x)
         print("Wrong")
+        show_memes(status)
         return
     if x in word:
         guesses.append(x)
@@ -79,7 +80,7 @@ def guess():
     
 def menu():
     done = True
-    show_memes(status)
+   
     strin = ""
     for x in word:
         if x in guesses:
@@ -92,6 +93,7 @@ def menu():
     if len(status) == 6:
         print("Has perdido")
         print("La palabra era: ", word.title())
+        input("Press enter to exit")
         exit()
     
     
