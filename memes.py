@@ -1,3 +1,7 @@
+"""
+Muestra un basico juego de hangman
+"""
+__autor__ = "TheJPMZ"
 import random
 import turtle
 
@@ -13,11 +17,14 @@ t.forward(50)
 status = []
 guesses = []
 
-bank = ["Apple","Banana","Cherry","Date","Elderberry","Fig","Grape","Huckleberry","Jackfruit","Kiwi","Lemon","Mango","Nectarine","Orange","Peach","Pineapple","Quince","Raspberry","Strawberry","Tangerine","Ugliberry","Watermelon"]
+bank = ["Apple", "Banana", "Cherry", "Date", "Elderberry", "Fig", "Grape", "Huckleberry", "Jackfruit", "Kiwi", "Lemon", "Mango",
+        "Nectarine", "Orange", "Peach", "Pineapple", "Quince", "Raspberry", "Strawberry", "Tangerine", "Ugliberry", "Watermelon"]
 
 word = random.choice(bank).upper()
 
 # Draw a hangman with turtle and show the status of the game
+
+
 def draw_head():
     t.right(90)
     t.circle(25)
@@ -25,21 +32,25 @@ def draw_head():
     t.left(90)
     t.forward(150)
     t.pendown()
-    
+
+
 def draw_body():
     t.forward(-100)
+
 
 def draw_rifht_arm():
     t.right(45)
     t.forward(100)
     t.forward(-100)
     t.left(45)
-    
+
+
 def draw_left_arm():
     t.left(45)
     t.forward(100)
     t.forward(-100)
     t.right(45)
+
 
 def draw_right_leg():
     t.forward(100)
@@ -47,7 +58,7 @@ def draw_right_leg():
     t.forward(100)
     t.forward(-100)
     t.left(45)
-    
+
 
 def show_memes(status: list):
     if len(status) == 1:
@@ -62,7 +73,8 @@ def show_memes(status: list):
         draw_right_leg()
     elif len(status) == 6:
         draw_left_arm()
-    
+
+
 def guess():
     x = input("Guess a letter: ").upper()
     if x in guesses:
@@ -77,10 +89,11 @@ def guess():
     if x in word:
         guesses.append(x)
         print("Correct")
-    
+
+
 def menu():
     done = True
-   
+
     strin = ""
     for x in word:
         if x in guesses:
@@ -89,14 +102,13 @@ def menu():
             strin += " _"
             done = False
     print(strin)
-    
+
     if len(status) == 6:
         print("Has perdido")
         print("La palabra era: ", word.title())
         input("Press enter to exit")
         exit()
-    
-    
+
     if not done:
         guess()
         done = True
@@ -106,13 +118,12 @@ def menu():
         print("You Won")
         exit()
 
-    
-
 
 def main():
     print("Welcome to the program")
     while True:
         menu()
+
 
 if __name__ == '__main__':
     main()
