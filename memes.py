@@ -33,8 +33,16 @@ def draw_rifht_arm():
     t.right(45)
     t.forward(100)
     t.forward(-100)
+    t.left(45)
     
+def draw_left_arm():
+    t.left(45)
+    t.forward(100)
+    t.forward(-100)
+    t.right(45)
 
+    
+    
 def show_memes(status: list):
     print("\t |")
     print(f"\t {'O' if len(status) >= 1 else ''}")
