@@ -41,6 +41,12 @@ def draw_left_arm():
     t.forward(-100)
     t.right(45)
 
+def draw_right_leg():
+    t.forward(100)
+    t.right(45)
+    t.forward(100)
+    t.forward(-100)
+    t.left(45)
     
     
 def show_memes(status: list):
