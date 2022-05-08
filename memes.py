@@ -6,7 +6,7 @@ guesses = []
 
 bank = ["Apple","Banana","Cherry","Date","Elderberry","Fig","Grape","Huckleberry","Jackfruit","Kiwi","Lemon","Mango","Nectarine","Orange","Peach","Pineapple","Quince","Raspberry","Strawberry","Tangerine","Ugliberry","Watermelon"]
 
-word = random.choice(bank)
+word = random.choice(bank).upper()
 
 def show_memes(status: list):
     print("\t |")
@@ -15,7 +15,7 @@ def show_memes(status: list):
     print(f"""\t{'/' if len(status) >= 5 else ''} {'''7 ''' if len(status) >= 6 else ''} """)
     
 def guess():
-    x = input("Guess a letter: ")
+    x = input("Guess a letter: ").upper()
     if x in guesses:
         print("You have already guessed that letter")
         return
@@ -46,7 +46,7 @@ def menu():
     
     if len(status) == 6:
         print("Has perdido")
-        print("La palabra era: ", word)
+        print("La palabra era: ", word.title())
         exit()
     
     
